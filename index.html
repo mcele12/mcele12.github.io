@@ -4,188 +4,239 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Garden Isle Event Rentals (GIER) - Kauai's Tent & Event Specialists
+      Garden Isle Event Rentals (GIER) | Kauai Tent & Event Specialists
     </title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
+    <!-- Three.js & OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
   <body>
-    <!-- TOP HEADER -->
-    <header class="top-header">
-      <div class="brand-container">
-        <div class="logo-badge">
-          <img src="./images/GIER_logo.jpg" alt="GIER Logo Badge" />
+    <!-- FLOATING HEADER -->
+    <header>
+      <div class="brand-wrap">
+        <div class="brand-logo-circle">
+          <svg viewBox="0 0 100 100">
+            <path
+              d="M50 15 L15 75 L85 75 Z"
+              stroke="white"
+              stroke-width="5"
+              fill="rgba(255,255,255,0.1)"
+            />
+            <path d="M50 15 L50 75" stroke="white" stroke-width="4" />
+            <path
+              d="M30 45 Q 50 35 70 45"
+              stroke="white"
+              stroke-width="4"
+              fill="none"
+            />
+          </svg>
+        </div>
+        <div class="brand-title">
+          <h1>GIER</h1>
+          <p>Kauai's Family-Operated Tent Specialists</p>
         </div>
       </div>
-      <div class="tagline-header">
-        Kauai's Family-Operated Tent & Event Specialists
-      </div>
-      <button class="btn-quote-header" onclick="openQuoteModal()">
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#inventory">Inventory & Packages</a>
+        <a href="#3d-builder">3D Tent Visualizer</a>
+        <a href="#how-it-works">How It Works</a>
+        <a
+          href="#contact"
+          onclick="
+            openQuoteModal();
+            return false;
+          "
+          >Contact</a
+        >
+      </nav>
+      <button class="btn-quote-nav" onclick="openQuoteModal()">
         Request A Quote
       </button>
     </header>
 
-    <!-- NAVIGATION -->
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#inventory">Packages</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="contactus.html">Contact Us</a>
-      <a href="inventory.html">Inventory</a>
-      <a href="legalinfo.html">Legal</a>
-    </nav>
+    <!-- 3D PARALLAX HERO SECTION -->
+    <section class="hero-container" id="home">
+      <div class="hero-layer hero-layer-bg" id="heroBg"></div>
+      <canvas class="hero-particles-canvas" id="heroParticlesCanvas"></canvas>
 
-    <!-- HERO SECTION WITH PARALLAX & 3D LAYERS -->
-    <section class="hero" id="home">
-      <div class="hero-bg" id="heroBg"></div>
-      <div class="hero-content">
+      <div class="hero-content-box" id="heroContent">
+        <div class="hero-badge-3d">
+          ✨ Interactive 3D Kauai Event Experience
+        </div>
         <h2>Celebrate with Aloha under the Garden Isle Skies</h2>
-        <div class="hero-buttons">
-          <a href="#inventory" class="btn-hero-teal">Browse Our Tents</a>
-          <a href="#inventory" class="btn-hero-gold">View Our Packages</a>
+        <div class="hero-actions">
+          <a href="#3d-builder" class="btn-hero-primary"
+            >Launch 3D Configurator</a
+          >
+          <a href="#inventory" class="btn-hero-secondary">View Inventory</a>
         </div>
       </div>
     </section>
 
     <!-- ABOUT SECTION -->
-    <section class="about-section" id="about">
-      <h2 class="about-title">Rooted in Kauai, Built on Aloha</h2>
-      <div class="about-grid">
-        <div class="about-image-card">
-          <img
-            src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80"
-            alt="GIER Event Setup"
-          />
-        </div>
-        <div class="about-text">
-          <p>
-            <strong>Welcome to Garden Isle Event Rentals.</strong> We are a
-            locally started and family-operated company that began in early
-            2022.
-          </p>
-          <p>
-            Here at GIER, we serve you with the <em>aloha</em> and
-            professionalism that we were raised with here on this beautiful
-            island of Kauai.
-          </p>
-          <p>
-            Although our inventory is limited, our goal is to grow into a
-            company that is able to give you the best options to meet your exact
-            event needs.
-          </p>
-          <div class="about-signature">- The GIER Ohana</div>
-        </div>
+    <section class="about-wrap" id="about">
+      <div class="about-card-3d">
+        <img
+          src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=80"
+          alt="GIER Kauai Setup"
+        />
+      </div>
+      <div class="about-text">
+        <h3>Rooted in Kauai, Built on Aloha</h3>
+        <p>
+          <strong>Welcome to Garden Isle Event Rentals.</strong> We are a
+          locally started and family-operated company that began in early 2022.
+        </p>
+        <p>
+          Here at GIER, we will serve you with the <em>aloha</em> and
+          professionalism that we were raised with right here on this beautiful
+          island of Kauai.
+        </p>
+        <p>
+          Although our inventory is carefully curated, our goal is to grow into
+          a company that delivers the best options to meet your exact gathering
+          needs.
+        </p>
+        <div class="signature-badge">- The GIER Ohana</div>
       </div>
     </section>
 
     <!-- 3D FEATURED INVENTORY & PACKAGES -->
     <section class="inventory-section" id="inventory">
       <div class="section-header">
-        <h2>Featured Packages</h2>
+        <h3>Featured Inventory & Packages</h3>
         <p>
-          High-peak tents, versatile canopies, and complete event bundles for
-          every Kauai celebration.
+          High-peak canopies and full party packages ready for island weather.
         </p>
       </div>
 
-      <div class="cards-grid">
-        <!-- 1. Hanalei High Peak -->
-        <div class="card-3d-wrap">
-          <div class="card-3d">
-            <div class="card-image-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=500&q=80"
-                alt="Hanalei High Peak"
-              />
-            </div>
-            <div class="card-body">
-              <h3>The Hanalei High Peak</h3>
-              <p>
-                Elegant high-peak frame design for open-air weddings and large
-                banquets.
-              </p>
+      <div class="inventory-grid">
+        <!-- 1 -->
+        <div class="tilt-card">
+          <div class="card-glare"></div>
+          <div class="card-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=80"
+              alt="The Hanalei High Peak"
+            />
+          </div>
+          <div class="card-info">
+            <h4>The Hanalei High Peak</h4>
+            <p>
+              Commercial high-peak frame tent for open banquets and
+              celebrations.
+            </p>
+            <div class="card-btn-group">
               <button
-                class="btn-card-teal"
+                class="btn-card-3d-preview"
+                onclick="loadPresetIn3D('high-peak')"
+              >
+                <span>📐</span> Preview in 3D Visualizer
+              </button>
+              <button
+                class="btn-card-action"
                 onclick="selectRentalItem('The Hanalei High Peak')"
               >
-                View Details
+                Request Quote
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 2. Poipu Backyard -->
-        <div class="card-3d-wrap">
-          <div class="card-3d">
-            <div class="card-image-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80"
-                alt="Poipu Backyard"
-              />
-            </div>
-            <div class="card-body">
-              <h3>The Poipu Backyard</h3>
-              <p>
-                Versatile medium canopy tailored for casual backyard
-                celebrations and parties.
-              </p>
+        <!-- 2 -->
+        <div class="tilt-card">
+          <div class="card-glare"></div>
+          <div class="card-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80"
+              alt="The Poipu Backyard"
+            />
+          </div>
+          <div class="card-info">
+            <h4>The Poipu Backyard</h4>
+            <p>
+              Medium-profile canopy tent suited for casual parties and reunions.
+            </p>
+            <div class="card-btn-group">
               <button
-                class="btn-card-teal"
+                class="btn-card-3d-preview"
+                onclick="loadPresetIn3D('frame-canopy')"
+              >
+                <span>📐</span> Preview in 3D Visualizer
+              </button>
+              <button
+                class="btn-card-action"
                 onclick="selectRentalItem('The Poipu Backyard')"
               >
-                View Details
+                Request Quote
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 3. Lihue Pop-Up -->
-        <div class="card-3d-wrap">
-          <div class="card-3d">
-            <div class="card-image-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=500&q=80"
-                alt="Lihue Pop-Up"
-              />
-            </div>
-            <div class="card-body">
-              <h3>The Lihue Pop-Up</h3>
-              <p>
-                10x10 quick-deploy shade canopy ideal for beach setups and
-                vendor booths.
-              </p>
+        <!-- 3 -->
+        <div class="tilt-card">
+          <div class="card-glare"></div>
+          <div class="card-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80"
+              alt="The Lihue Pop-Up"
+            />
+          </div>
+          <div class="card-info">
+            <h4>The Lihue Pop-Up</h4>
+            <p>
+              10x10 quick shade canopy designed for beach gatherings & food
+              stations.
+            </p>
+            <div class="card-btn-group">
               <button
-                class="btn-card-teal"
+                class="btn-card-3d-preview"
+                onclick="loadPresetIn3D('popup')"
+              >
+                <span>📐</span> Preview in 3D Visualizer
+              </button>
+              <button
+                class="btn-card-action"
                 onclick="selectRentalItem('The Lihue Pop-Up')"
               >
-                View Details
+                Request Quote
               </button>
             </div>
           </div>
         </div>
 
-        <!-- 4. Intimate Gathering Package -->
-        <div class="card-3d-wrap">
-          <div class="card-3d">
-            <div class="card-image-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=80"
-                alt="Intimate Gathering Package"
-              />
-            </div>
-            <div class="card-body">
-              <h3>Intimate Gathering Package</h3>
-              <p>High-peak tent + 6 tables & 30 chairs (up to 30 guests).</p>
+        <!-- 4 -->
+        <div class="tilt-card">
+          <div class="card-glare"></div>
+          <div class="card-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80"
+              alt="Intimate Gathering Package"
+            />
+          </div>
+          <div class="card-info">
+            <h4>Intimate Gathering Package</h4>
+            <p>Tent + 6 tables & 30 chairs (up to 30 guests).</p>
+            <div class="card-btn-group">
               <button
-                class="btn-card-gold"
+                class="btn-card-3d-preview"
+                onclick="loadPresetIn3D('package-30')"
+              >
+                <span>📐</span> Preview in 3D Visualizer
+              </button>
+              <button
+                class="btn-card-action btn-card-gold"
                 onclick="selectRentalItem('Intimate Gathering Package')"
               >
                 Select Package
@@ -194,20 +245,27 @@
           </div>
         </div>
 
-        <!-- 5. Celebration Package -->
-        <div class="card-3d-wrap">
-          <div class="card-3d">
-            <div class="card-image-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=500&q=80"
-                alt="Celebration Package"
-              />
-            </div>
-            <div class="card-body">
-              <h3>Celebration Package</h3>
-              <p>Large frame tent + 10 tables & 60 chairs (up to 60 guests).</p>
+        <!-- 5 -->
+        <div class="tilt-card">
+          <div class="card-glare"></div>
+          <div class="card-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80"
+              alt="Celebration Package"
+            />
+          </div>
+          <div class="card-info">
+            <h4>Celebration Package</h4>
+            <p>Large frame tent + 10 tables & 60 chairs (up to 60 guests).</p>
+            <div class="card-btn-group">
               <button
-                class="btn-card-gold"
+                class="btn-card-3d-preview"
+                onclick="loadPresetIn3D('package-60')"
+              >
+                <span>📐</span> Preview in 3D Visualizer
+              </button>
+              <button
+                class="btn-card-action btn-card-gold"
                 onclick="selectRentalItem('Celebration Package')"
               >
                 Select Package
@@ -218,12 +276,149 @@
       </div>
     </section>
 
+    <!-- INTERACTIVE 3D TENT VISUALIZER & CONFIGURATOR -->
+    <section class="visualizer-section" id="3d-builder">
+      <div class="visualizer-header">
+        <h3>Interactive 3D Event Builder</h3>
+        <p>
+          Rotate, zoom, and customize your tent setup in real-time WebGL 3D.
+          Switch between day & evening lights to envision your Kauai event!
+        </p>
+      </div>
+
+      <div class="visualizer-container">
+        <!-- 3D Canvas Viewport -->
+        <div class="webgl-viewport-wrap">
+          <div class="viewport-overlay-hint">
+            <span>🖱️ Click & Drag to Orbit 3D Scene | Scroll to Zoom</span>
+          </div>
+          <canvas id="webgl-canvas"></canvas>
+
+          <div class="viewport-overlay-stats">
+            <div class="stat-item">
+              <span>Selected Tent</span>
+              <strong id="statTentName">Hanalei High Peak</strong>
+            </div>
+            <div class="stat-item">
+              <span>Guest Capacity</span>
+              <strong id="statCapacity">50 - 70 Guests</strong>
+            </div>
+            <div class="stat-item">
+              <span>Tables / Chairs</span>
+              <strong id="statTables">7 Tables / 42 Chairs</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Control Panel -->
+        <div class="control-panel">
+          <!-- 1. Tent Type -->
+          <div class="control-group">
+            <h4>⛺ 1. Choose Tent Model</h4>
+            <div class="btn-grid-3">
+              <button
+                class="ctrl-btn active"
+                id="btnTentHighPeak"
+                onclick="setTentStyle('high-peak')"
+              >
+                High Peak
+              </button>
+              <button
+                class="ctrl-btn"
+                id="btnTentFrame"
+                onclick="setTentStyle('frame-canopy')"
+              >
+                Poipu Canopy
+              </button>
+              <button
+                class="ctrl-btn"
+                id="btnTentPopup"
+                onclick="setTentStyle('popup')"
+              >
+                Beach Pop-Up
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. Table / Guest Setup -->
+          <div class="control-group">
+            <h4>🪑 2. Seating & Layout</h4>
+            <div class="btn-grid-3">
+              <button
+                class="ctrl-btn"
+                id="btnLayout30"
+                onclick="setGuestLayout(30)"
+              >
+                30 Guests
+              </button>
+              <button
+                class="ctrl-btn active"
+                id="btnLayout60"
+                onclick="setGuestLayout(60)"
+              >
+                60 Guests
+              </button>
+              <button
+                class="ctrl-btn"
+                id="btnLayout100"
+                onclick="setGuestLayout(100)"
+              >
+                100 Guests
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Atmosphere & Time of Day -->
+          <div class="control-group">
+            <h4>🌅 3. Atmosphere & Lights</h4>
+            <div class="btn-grid-2">
+              <button
+                class="ctrl-btn active"
+                id="btnTimeSunset"
+                onclick="setLighting('sunset')"
+              >
+                Golden Sunset ✨
+              </button>
+              <button
+                class="ctrl-btn"
+                id="btnTimeDay"
+                onclick="setLighting('day')"
+              >
+                Tropical Day ☀️
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Camera Angles -->
+          <div class="control-group">
+            <h4>🎥 4. Camera Angle</h4>
+            <div class="btn-grid-3">
+              <button class="ctrl-btn" onclick="setCameraAngle('overview')">
+                Overview
+              </button>
+              <button class="ctrl-btn" onclick="setCameraAngle('inside')">
+                Inside
+              </button>
+              <button class="ctrl-btn" onclick="setCameraAngle('topdown')">
+                Floorplan
+              </button>
+            </div>
+          </div>
+
+          <!-- Submit 3D Config to Quote -->
+          <button class="btn-apply-3d-quote" onclick="quoteCurrent3DSetup()">
+            Request Quote For This 3D Setup
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- HOW IT WORKS -->
-    <section class="how-it-works" id="how-it-works">
-      <h2>How It Works</h2>
-      <div class="steps-container">
-        <div class="step-card" onclick="location.href = '#inventory'">
-          <div class="step-icon">
+    <section class="steps-section" id="how-it-works">
+      <h3>How It Works</h3>
+      <div class="steps-row">
+        <div class="step-box">
+          <div class="step-icon-wrap">
             <svg
               width="28"
               height="28"
@@ -235,17 +430,15 @@
               <path d="M3 21l9-18 9 18H3z"></path>
             </svg>
           </div>
-          <h4>(1) Browse Inventory</h4>
+          <h5>(1) Browse & Visualize 3D</h5>
           <p>
-            Explore standalone tents and complete bundles suited for your guest
-            list.
+            Pick tent styles or customize guest layouts directly in our live 3D
+            visualizer.
           </p>
         </div>
 
-        <div class="step-arrow">&rarr;</div>
-
-        <div class="step-card" onclick="openQuoteModal()">
-          <div class="step-icon">
+        <div class="step-box">
+          <div class="step-icon-wrap">
             <svg
               width="28"
               height="28"
@@ -260,17 +453,12 @@
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
           </div>
-          <h4>(2) Request Availability</h4>
-          <p>
-            Submit your event date and venue location to lock in your
-            reservation.
-          </p>
+          <h5>(2) Request Availability</h5>
+          <p>Send us your date and venue location to lock in inventory.</p>
         </div>
 
-        <div class="step-arrow">&rarr;</div>
-
-        <div class="step-card">
-          <div class="step-icon">
+        <div class="step-box">
+          <div class="step-icon-wrap">
             <svg
               width="28"
               height="28"
@@ -285,78 +473,72 @@
               <circle cx="18.5" cy="18.5" r="2.5"></circle>
             </svg>
           </div>
-          <h4>(3) We Deliver & Setup</h4>
+          <h5>(3) We Deliver & Set Up</h5>
           <p>
-            Our team handles timely on-island delivery, full setup, and
-            breakdown.
+            Our family team handles delivery, assembly, and takedown on Kauai.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- INTERACTIVE QUOTE / BOOKING MODAL -->
+    <!-- WEB3FORMS MODAL -->
     <div class="modal-overlay" id="quoteModal">
-      <div class="modal-window">
-        <button class="close-btn" onclick="closeQuoteModal()">&times;</button>
-        <h3>Request Availability & Quote</h3>
+      <div class="modal-box">
+        <button class="close-modal" onclick="closeQuoteModal()">&times;</button>
+        <h3>Check Availability & Pricing</h3>
         <p>
-          Fill out your event details below and our team will get back to you
-          with availability and a custom quote.
+          Submit your event details and we’ll review availability for your
+          requested date.
         </p>
 
-        <form id="quoteForm" onsubmit="handleFormSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
+        <form id="rentalForm" onsubmit="handleWeb3Form(event)">
+          <!-- Honeypot -->
+          <input type="checkbox" name="botcheck" class="hidden" />
+
+          <div class="form-grid-2">
+            <div class="input-wrap">
               <label for="fullName">Full Name *</label>
               <input
                 type="text"
                 id="fullName"
-                name="full_name"
-                autocomplete="name"
-                placeholder="e.g. Keanu Silva"
+                name="name"
                 required
+                placeholder="Keanu Silva"
               />
             </div>
-            <div class="form-group">
-              <label for="emailAddress">Email Address *</label>
+            <div class="input-wrap">
+              <label for="emailAddr">Email Address *</label>
               <input
                 type="email"
-                id="emailAddress"
-                name="email_address"
-                autocomplete="email"
-                placeholder="keanu@example.com"
+                id="emailAddr"
+                name="email"
                 required
+                placeholder="keanu@example.com"
               />
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phoneNumber">Phone Number *</label>
+          <div class="form-grid-2">
+            <div class="input-wrap">
+              <label for="phoneNum">Phone Number *</label>
               <input
                 type="tel"
-                id="phoneNumber"
-                name="phone_number"
-                autocomplete="tel"
-                placeholder="(808) 555-0123"
-                pattern="[0-9()#+.\s-]{7,20}"
-                title="Please enter a valid phone number"
+                id="phoneNum"
+                name="phone"
                 required
+                placeholder="(808) 555-0123"
               />
             </div>
-            <div class="form-group">
+            <div class="input-wrap">
               <label for="eventDate">Event Date *</label>
               <input type="date" id="eventDate" name="event_date" required />
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="itemSelect">Selected Item / Package *</label>
-              <select id="itemSelect" name="selected_item" required>
-                <option value="" disabled selected>
-                  Select an item or package...
-                </option>
+          <div class="form-grid-2">
+            <div class="input-wrap">
+              <label for="itemSelect">Selected Item / Package</label>
+              <select id="itemSelect" name="item_selected">
                 <option value="The Hanalei High Peak">
                   The Hanalei High Peak
                 </option>
@@ -368,40 +550,47 @@
                 <option value="Celebration Package">
                   Celebration Package (60 Guests)
                 </option>
-                <option value="Custom Event Quote">
-                  Custom Event / Multiple Items
+                <option value="Custom 3D Configured Setup">
+                  Custom 3D Configured Setup
                 </option>
               </select>
             </div>
-            <div class="form-group">
-              <label for="setupSurface">Setup Surface *</label>
-              <select id="setupSurface" name="setup_surface" required>
-                <option value="" disabled selected>Select a surface...</option>
-                <option value="Grass">Grass (Stakeable)</option>
-                <option value="Concrete">Concrete / Asphalt (Weighted)</option>
-                <option value="Sand">Sand / Beach Area</option>
-                <option value="Other">Other / Indoors</option>
+            <div class="input-wrap">
+              <label for="surfaceSelect">Installation Surface *</label>
+              <select id="surfaceSelect" name="setup_surface" required>
+                <option value="Grass">Grass (Ground Stakes)</option>
+                <option value="Concrete">
+                  Concrete / Asphalt (Weights Required)
+                </option>
+                <option value="Sand">Sand / Beach Ground</option>
+                <option value="Deck">Wood Deck / Pavers</option>
               </select>
             </div>
           </div>
 
-          <div class="form-group">
-            <label>Kauai Delivery Location / Venue</label>
+          <div class="input-wrap">
+            <label for="venueLocation">Kauai Delivery Location / Venue</label>
             <input
               type="text"
-              placeholder="e.g. Poipu Beach Park, Kilauea private residence, etc."
+              id="venueLocation"
+              name="venue_location"
+              placeholder="e.g. Poipu Beach Park, Kilauea residence"
             />
           </div>
 
-          <div class="form-group">
-            <label>Special Requests or Inquiries</label>
+          <div class="input-wrap">
+            <label for="eventNotes">Special Logistics / Notes</label>
             <textarea
+              id="eventNotes"
+              name="notes"
               rows="3"
-              placeholder="Tell us about your event timeline, gate access, or extra table/chair needs..."
+              placeholder="Gate codes, delivery timeframe, chair counts..."
             ></textarea>
           </div>
 
-          <button type="submit" class="btn-submit">Submit Quote Request</button>
+          <button type="submit" id="submitBtn" class="btn-submit-form">
+            Send Quote Request
+          </button>
         </form>
       </div>
     </div>
@@ -418,6 +607,6 @@
       </p>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
   </body>
 </html>
