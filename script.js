@@ -537,7 +537,7 @@ function setTentStyle(style) {
     .forEach((b) => b.classList.remove("active"));
   if (style === "high-peak") {
     document.getElementById("btnTentHighPeak").classList.add("active");
-    document.getElementById("statTentName").innerText = "Hanalei High Peak";
+    document.getElementById("statTentName").innerText = "Waimea Grand Canyon";
   } else if (style === "frame-canopy") {
     document.getElementById("btnTentFrame").classList.add("active");
     document.getElementById("statTentName").innerText = "Poipu Frame Canopy";
@@ -621,7 +621,7 @@ function quoteCurrent3DSetup() {
   const notesArea = document.getElementById("eventNotes");
 
   let tentTitle = "Custom 3D Configured Setup";
-  if (currentTentStyle === "high-peak") tentTitle = "The Hanalei High Peak";
+  if (currentTentStyle === "high-peak") tentTitle = "The Waimea Grand Canyon";
   else if (currentTentStyle === "frame-canopy")
     tentTitle = "The Poipu Backyard";
   else if (currentTentStyle === "popup") tentTitle = "The Lihue Pop-Up";
