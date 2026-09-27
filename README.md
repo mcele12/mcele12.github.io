@@ -1,2 +1,3 @@
-# mcele12.github.io
-This is my GitHub pages site.
+# GIER - Garden Isle Event Rental LLC
+
+This is my GIER website to host and promote our tent rental services for our customers' needs. 
