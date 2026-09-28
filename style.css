@@ -179,6 +179,12 @@ nav a:hover {
   transition: transform 0.15s ease-out;
 }
 
+.hero-nav-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
 .hero-badge-3d {
   display: inline-flex;
   align-items: center;
