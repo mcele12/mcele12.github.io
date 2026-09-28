@@ -3,68 +3,153 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory - Garden Isle Event Rentals LLC (GIER)</title>
+    <title>Inventory & Tent Sizes - Garden Isle Event Rentals (GIER)</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- TOP HEADER -->
-    <header class="top-header">
-      <div class="brand-container">
+    <!-- FLOATING HEADER -->
+    <header>
+      <div class="brand-wrap">
         <div class="logo-badge">
-          <img src="./images/GIER_logo.jpg" alt="GIER Logo Badge" />
+          <img src="./images/GIER_logo.jpg" alt="Garden Isle Event Rentals Logo" />
+        </div>
+        <div class="brand-title">
+          <h1>GIER</h1>
+          <p>Kauai's Family-Operated Tent Specialists</p>
         </div>
       </div>
-      <div class="tagline-header">
-        Kauai's Family-Operated Tent & Event Specialists
-      </div>
-      <button class="btn-quote-header" onclick="openQuoteModal()">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="legalinfo.html">Legal Info</a>
+        <a href="contactus.html">Contact</a>
+        <a href="#">Kama'aina</a>
+      </nav>
+      <button class="btn-quote-nav" onclick="openQuoteModal()">
         Request A Quote
       </button>
     </header>
 
-    <!-- NAVIGATION -->
-    <nav>
-      <a href="index.html#home">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#inventory">Packages</a>
-      <a href="index.html#how-it-works">How It Works</a>
-      <a href="contactus.html">Contact Us</a>
-      <a href="inventory.html">Inventory</a>
-      <a href="legalinfo.html">Legal</a>
-    </nav>
+    <section class="inventory-section" style="padding-top: 7rem">
+      <div class="section-header">
+        <h1>Tent Rental Categories</h1>
+        <p>
+          We offer three core commercial tent sizes to perfectly fit your Kauai
+          venue and guest count: Small (10x10), Medium (20x20), and Big (40x40).
+        </p>
+      </div>
 
-    <section class="inventory-section">
-      <h1>Our Inventory</h1>
-      <p>
-        Explore our wide range of event rental items to make your event
-        unforgettable.
-      </p>
-
-      <!-- Inventory Items -->
-      <div class="inventory-items">
-        <!-- Example Item -->
-        <div class="inventory-item">
-          <img src="images/tent.jpg" alt="Tent Rental" />
-          <h2>Tents</h2>
-          <p>Various sizes and styles available for your event needs.</p>
+      <div class="inventory-grid">
+        <!-- 10x10 Small Tent -->
+        <div class="tilt-card">
+          <div class="card-glare"></div>
+          <div class="card-thumb">
+            <img
+              src="images/Tent/Pictures/Small Tent/IMG_5499.jpeg"
+              alt="Small Tent 10x10"
+            />
+            <span class="card-tag">10' x 10' Small</span>
+          </div>
+          <div class="card-info">
+            <h4>10' x 10' Small Tent</h4>
+            <p>
+              Compact high-peak pop-up tent perfect for beach shade, vendor
+              booths, registration desks & food/beverage stations.
+            </p>
+            <div class="card-btn-group">
+              <a href="index.html#gallery" class="btn-card-3d-preview">
+                📸 View All Photos
+              </a>
+              <button
+                class="btn-card-action"
+                onclick="selectRentalItem('The Lihue Pop-Up')"
+              >
+                Request Quote
+              </button>
+            </div>
+          </div>
         </div>
 
-        <!-- Add more inventory items as needed -->
+        <!-- 20x20 Medium Tent -->
+        <div class="tilt-card">
+          <div class="card-glare"></div>
+          <div class="card-thumb">
+            <img
+              src="images/Tent/Pictures/Medium Tent/IMG_1291.jpeg"
+              alt="Medium Tent 20x20"
+            />
+            <span class="card-tag">20' x 20' Medium</span>
+          </div>
+          <div class="card-info">
+            <h4>20' x 20' Medium Tent</h4>
+            <p>
+              Versatile medium-size frame canopy tent suitable for 30–40 guests.
+              Ideal for birthday parties, family luaus & backyard reunions.
+            </p>
+            <div class="card-btn-group">
+              <a href="index.html#gallery" class="btn-card-3d-preview">
+                📸 View All Photos
+              </a>
+              <button
+                class="btn-card-action"
+                onclick="selectRentalItem('The Poipu Backyard')"
+              >
+                Request Quote
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 40x40 Big Tent -->
+        <div class="tilt-card">
+          <div class="card-glare"></div>
+          <div class="card-thumb">
+            <img
+              src="images/Tent/Pictures/Big Tent/IMG_7492.jpeg"
+              alt="Big Tent 40x40"
+            />
+            <span class="card-tag">40' x 40' Big Tent</span>
+          </div>
+          <div class="card-info">
+            <h4>40' x 40' Big Tent</h4>
+            <p>
+              Commercial Grand Canyon frame tent hosting 60–100+ guests.
+              Designed for weddings, corporate banquets & large island
+              celebrations.
+            </p>
+            <div class="card-btn-group">
+              <a href="index.html#gallery" class="btn-card-3d-preview">
+                📸 View All Photos
+              </a>
+              <button
+                class="btn-card-action"
+                onclick="selectRentalItem('The Waimea Grand Canyon')"
+              >
+                Request Quote
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-      <p>&copy; 2024 Garden Isle Event Rentals. All rights reserved.</p>
+      <p>
+        <strong>Garden Isle Event Rentals LLC (GIER)</strong> &bull; Kauai,
+        Hawaii
+      </p>
+      <p>&copy; 2026 Garden Isle Event Rentals. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for interactivity (if needed) -->
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

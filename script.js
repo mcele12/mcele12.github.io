@@ -711,3 +711,41 @@ async function handleWeb3Form(e) {
     btn.disabled = false;
   }
 }
+
+// ==========================================
+// 7. PHOTO GALLERY & LIGHTBOX HANDLERS
+// ==========================================
+function filterGallery(category) {
+  const buttons = document.querySelectorAll(".gallery-filter-btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
+
+  event.target.classList.add("active");
+
+  const items = document.querySelectorAll(".gallery-item");
+  items.forEach((item) => {
+    const itemCat = item.getAttribute("data-category");
+    if (category === "all" || itemCat === category) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+
+function openLightbox(imgSrc, title) {
+  const modal = document.getElementById("lightboxModal");
+  const img = document.getElementById("lightboxImg");
+  const titleEl = document.getElementById("lightboxTitle");
+  if (modal && img && titleEl) {
+    img.src = imgSrc;
+    titleEl.textContent = title || "Tent Photo Preview";
+    modal.classList.add("active");
+  }
+}
+
+function closeLightbox(e) {
+  const modal = document.getElementById("lightboxModal");
+  if (modal) {
+    modal.classList.remove("active");
+  }
+}

@@ -11,48 +11,52 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- TOP HEADER -->
-    <header class="top-header">
-      <div class="brand-container">
+    <!-- FLOATING HEADER -->
+    <header>
+      <div class="brand-wrap">
         <div class="logo-badge">
-          <img src="./images/GIER_logo.jpg" alt="GIER Logo Badge" />
+          <img src="./images/GIER_logo.jpg" alt="Garden Isle Event Rentals Logo" />
+        </div>
+        <div class="brand-title">
+          <h1>GIER</h1>
+          <p>Kauai's Family-Operated Tent Specialists</p>
         </div>
       </div>
-      <div class="tagline-header">
-        Kauai's Family-Operated Tent & Event Specialists
-      </div>
-      <button class="btn-quote-header" onclick="openQuoteModal()">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="legalinfo.html">Legal Info</a>
+        <a href="contactus.html">Contact</a>
+        <a href="#">Kama'aina</a>
+      </nav>
+      <button class="btn-quote-nav" onclick="openQuoteModal()">
         Request A Quote
       </button>
     </header>
 
-    <!-- NAVIGATION -->
-    <nav>
-      <a href="index.html#home">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#inventory">Packages</a>
-      <a href="index.html#how-it-works">How It Works</a>
-      <a href="contactus.html">Contact Us</a>
-      <a href="inventory.html">Inventory</a>
-      <a href="legalinfo.html">Legal</a>
-    </nav>
-
-    <section class="contact-section">
-      <h1>Contact Us</h1>
-      <p>
-        Have questions or want to get in touch with us? Fill out the form below
-        and we'll get back to you as soon as possible.
-      </p>
+    <section class="inventory-section" style="padding-top: 7rem">
+      <div class="section-header">
+        <h1>Contact Us</h1>
+        <p>
+          Have questions or want to get in touch with us? We'd love to help plan
+          your Kauai event.
+        </p>
+      </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-      <p>&copy; 2024 Garden Isle Event Rentals. All rights reserved.</p>
+      <p>
+        <strong>Garden Isle Event Rentals LLC (GIER)</strong> &bull; Kauai,
+        Hawaii
+      </p>
+      <p>&copy; 2026 Garden Isle Event Rentals. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for interactivity (if needed) -->
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
