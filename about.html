@@ -3,9 +3,238 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>About Us - Garden Isle Event Rentals (GIER)</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <script src="script.js" defer></script>
+    <!-- FLOATING HEADER -->
+    <header>
+      <div class="brand-wrap">
+        <div class="logo-badge">
+          <img src="./images/GIER_logo.jpg" alt="Garden Isle Event Rentals Logo" />
+        </div>
+        <div class="brand-title">
+          <h1>GIER</h1>
+          <p>Kauai's Family-Operated Tent Specialists</p>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="legalinfo.html">Legal Info</a>
+        <a href="contactus.html">Contact</a>
+        <a href="#">Kama'aina</a>
+      </nav>
+      <button class="btn-quote-nav" onclick="openQuoteModal()">
+        Request A Quote
+      </button>
+    </header>
+
+    <!-- PAGE HERO HEADER -->
+    <section class="inventory-section" style="padding-top: 7.5rem; padding-bottom: 2rem;">
+      <div class="section-header">
+        <h1>About Garden Isle Event Rentals</h1>
+        <p>
+          Rooted in Kauai, built on aloha, and dedicated to elevating island celebrations.
+        </p>
+      </div>
+    </section>
+
+    <!-- ABOUT MAIN CONTENT SECTION -->
+    <section class="about-wrap" style="padding: 2rem 2.5rem 5rem 2.5rem;">
+      <div class="about-card-3d">
+        <img
+          src="images/Tent/Pictures/Big Tent/IMG_7495.jpeg"
+          alt="GIER Kauai Tent Setup"
+        />
+      </div>
+      <div class="about-text">
+        <h3>Rooted in Kauai, Built on Aloha</h3>
+        <p>
+          <strong>Welcome to Garden Isle Event Rentals (GIER).</strong> We are a
+          locally started and family-operated event company established in early 2022.
+        </p>
+        <p>
+          Here at GIER, we serve our clients with the authentic <em>aloha</em> spirit and
+          professionalism that we were raised with right here on the beautiful island of Kauai.
+        </p>
+        <p>
+          Whether you are hosting an intimate family luau, a backyard birthday, a community gathering, or an elegant island wedding, we provide commercial-grade high-peak frame canopies and full event rentals tailored to your exact location.
+        </p>
+        <div class="signature-badge">- The GIER Ohana</div>
+      </div>
+    </section>
+
+    <!-- CORE OFFERINGS SECTION -->
+    <section class="gallery-section" style="background: #fdfbf7;">
+      <div class="section-header">
+        <h3>Our Tent Solutions</h3>
+        <p>Curated commercial tent sizes built for Kauai's weather and island terrain.</p>
+      </div>
+
+      <div class="inventory-grid">
+        <div class="tilt-card">
+          <div class="card-thumb">
+            <img src="images/Tent/Pictures/Small Tent/IMG_5499.jpeg" alt="Small Tent 10x10" />
+            <span class="card-tag">10' x 10' Small</span>
+          </div>
+          <div class="card-info">
+            <h4>Small Tents (10x10)</h4>
+            <p>Ideal for beach shade, food prep stations, registration, and small gatherings.</p>
+          </div>
+        </div>
+
+        <div class="tilt-card">
+          <div class="card-thumb">
+            <img src="images/Tent/Pictures/Medium Tent/IMG_1291.jpeg" alt="Medium Tent 20x20" />
+            <span class="card-tag">20' x 20' Medium</span>
+          </div>
+          <div class="card-info">
+            <h4>Medium Tents (20x20)</h4>
+            <p>Perfect for 30–40 guests, family parties, graduations, and backyard events.</p>
+          </div>
+        </div>
+
+        <div class="tilt-card">
+          <div class="card-thumb">
+            <img src="images/Tent/Pictures/Big Tent/IMG_7492.jpeg" alt="Big Tent 40x40" />
+            <span class="card-tag">40' x 40' Big Tent</span>
+          </div>
+          <div class="card-info">
+            <h4>Big Tents (40x40)</h4>
+            <p>Designed for large banquets, corporate events, and island weddings up to 100+ guests.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEB3FORMS MODAL -->
+    <div class="modal-overlay" id="quoteModal">
+      <div class="modal-box">
+        <button class="close-modal" onclick="closeQuoteModal()">&times;</button>
+        <h3>Check Availability & Pricing</h3>
+        <p>
+          Submit your event details and we’ll review availability for your requested date.
+        </p>
+
+        <form id="rentalForm" onsubmit="handleWeb3Form(event)">
+          <input type="checkbox" name="botcheck" class="hidden" />
+
+          <div class="form-grid-2">
+            <div class="input-wrap">
+              <label for="fullName">Full Name *</label>
+              <input
+                type="text"
+                id="fullName"
+                name="name"
+                required
+                placeholder="Keanu Silva"
+              />
+            </div>
+            <div class="input-wrap">
+              <label for="emailAddr">Email Address *</label>
+              <input
+                type="email"
+                id="emailAddr"
+                name="email"
+                required
+                placeholder="keanu@example.com"
+              />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="input-wrap">
+              <label for="phoneNum">Phone Number *</label>
+              <input
+                type="tel"
+                id="phoneNum"
+                name="phone"
+                required
+                placeholder="(808) 555-0123"
+              />
+            </div>
+            <div class="input-wrap">
+              <label for="eventDate">Event Date *</label>
+              <input type="date" id="eventDate" name="event_date" required />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="input-wrap">
+              <label for="itemSelect">Selected Item / Package</label>
+              <select id="itemSelect" name="item_selected">
+                <option value="The Waimea Grand Canyon">
+                  The Waimea Grand Canyon (40x40)
+                </option>
+                <option value="The Poipu Backyard">The Poipu Backyard (20x20)</option>
+                <option value="The Lihue Pop-Up">The Lihue Pop-Up (10x10)</option>
+                <option value="Intimate Gathering Package">
+                  Intimate Gathering Package (30 Guests)
+                </option>
+                <option value="Celebration Package">
+                  Celebration Package (60 Guests)
+                </option>
+              </select>
+            </div>
+            <div class="input-wrap">
+              <label for="surfaceSelect">Installation Surface *</label>
+              <select id="surfaceSelect" name="setup_surface" required>
+                <option value="Grass">Grass (Ground Stakes)</option>
+                <option value="Concrete">
+                  Concrete / Asphalt (Weights Required)
+                </option>
+                <option value="Sand">Sand / Beach Ground</option>
+                <option value="Deck">Wood Deck / Pavers</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="venueLocation">Kauai Delivery Location / Venue</label>
+            <input
+              type="text"
+              id="venueLocation"
+              name="venue_location"
+              placeholder="e.g. Poipu Beach Park, Kilauea residence"
+            />
+          </div>
+
+          <div class="input-wrap">
+            <label for="eventNotes">Special Logistics / Notes</label>
+            <textarea
+              id="eventNotes"
+              name="notes"
+              rows="3"
+              placeholder="Gate codes, delivery timeframe, chair counts..."
+            ></textarea>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn-submit-form">
+            Send Quote Request
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        <strong>Garden Isle Event Rentals LLC (GIER)</strong> &bull; Kauai, Hawaii
+      </p>
+      <p>
+        &copy; 2026 Garden Isle Event Rentals. All Rights Reserved. Built with Aloha.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
